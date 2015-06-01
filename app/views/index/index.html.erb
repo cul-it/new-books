@@ -1,0 +1,58 @@
+
+  
+
+
+ <nav class="navbar navbar-inverse " role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">The Awesomizer</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+          
+            <li><a href="/about">About</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+
+<div class="container">
+  <div class="row">
+  <div class="col-xs-12">
+  
+  <div id="documents">
+    <% @newbooks.each do |data| %>
+
+
+
+
+      
+              <div class="document">
+               <% if data["oclc_id"].present? %>
+              <a href="http://newcatalog.library.cornell.edu/catalog/<%= data['bibid']%>" ><div class="iconcover bookcover" id="OCLC:<%= data["oclc_id"] %>" data-oclc="<%= data["oclc_id"] %>">
+</div></a>
+
+     <% end %>
+              <h5><a href="http://newcatalog.library.cornell.edu/catalog/<%= data['id']%>" ><%= data["fulltitle_display"] %></a>
+
+             </h5>
+
+
+             <p> <% if !data["author_display"].blank? %><%= data["author_display"] %><br><%end%>
+             
+            </div><!--/.col-xs-6.col-lg-4-->
+          
+            <%end%>
+            </div>
+            </div>
+          </div><!--/row-->
+          </div>
+
+ 
